@@ -16,8 +16,9 @@ def registrar_prestamo():
             if libro_presta == x['codigo']:
                  if x['cantidad_disponible'] >0:
                     x ['cantidad_disponible'] = -1
-                    with open ("inventario.json","w"):
-                        pass
+                    with open ("inventario.json","w") as prestamos:
+                        l_prestamos = json.dump(libros,prestamos,indent=4)
+                    print("prestamo realizado con exito")
 
 
     except FileNotFoundError:
